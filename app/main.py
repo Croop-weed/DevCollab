@@ -3,9 +3,15 @@ from app.core.config import settings
 from contextlib import asynccontextmanager
 from app.api.v1 import user
 
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    print("Starting up DevCollab...")
+    yield
+    print("Shutting down...")
+
 app = FastAPI(title=settings.APP_NAME, debug=settings.DEBUG)
 
-app.include_router(user.router,prefix="api/v1")
+app.include_router(user.router,prefix="/api/v1")
 
 @app.on_event("startup")
 async def startup_event():
