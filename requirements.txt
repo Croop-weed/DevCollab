@@ -19,19 +19,27 @@ anyio==4.13.0
     #   watchfiles
 asyncpg==0.31.0
     # via -r requirements.in
+bcrypt==5.0.0
+    # via passlib
 certifi==2026.5.20
     # via
     #   httpcore
     #   httpx
     #   sentry-sdk
+cffi==2.0.0
+    # via cryptography
 click==8.4.1
     # via
     #   rich-toolkit
     #   uvicorn
+cryptography==49.0.0
+    # via python-jose
 detect-installer==0.1.0
     # via fastapi-cloud-cli
 dnspython==2.8.0
     # via email-validator
+ecdsa==0.19.2
+    # via python-jose
 email-validator==2.3.0
     # via
     #   fastapi
@@ -77,6 +85,14 @@ markupsafe==3.0.3
     #   mako
 mdurl==0.1.2
     # via markdown-it-py
+passlib[bcrypt]==1.7.4
+    # via -r requirements.in
+pyasn1==0.6.3
+    # via
+    #   python-jose
+    #   rsa
+pycparser==3.0
+    # via cffi
 pydantic[email]==2.13.4
     # via
     #   fastapi
@@ -97,6 +113,8 @@ python-dotenv==1.2.2
     # via
     #   pydantic-settings
     #   uvicorn
+python-jose[cryptography]==3.5.0
+    # via -r requirements.in
 python-multipart==0.0.32
     # via fastapi
 pyyaml==6.0.3
@@ -111,10 +129,14 @@ rich-toolkit==0.20.1
     #   fastapi-cloud-cli
 rignore==0.7.6
     # via fastapi-cloud-cli
+rsa==4.9.1
+    # via python-jose
 sentry-sdk==2.62.0
     # via fastapi-cloud-cli
 shellingham==1.5.4
     # via typer
+six==1.17.0
+    # via ecdsa
 sqlalchemy[asyncio]==2.0.50
     # via
     #   -r requirements.in
