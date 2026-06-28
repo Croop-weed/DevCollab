@@ -4,7 +4,7 @@ from jose import JWTError,jwt
 from passlib.context import CryptContext
 from app.core.config import settings
 
-pwd_cotext = CryptContext(schemes=["bycrpt"],deprecated="auto")
+pwd_cotext = CryptContext(schemes=["bcrypt"],deprecated="auto")
 
 def hashed_password(password : str) -> str:
     return pwd_cotext.hash(password)

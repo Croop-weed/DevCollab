@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from app.core.config import settings
 from contextlib import asynccontextmanager
-from app.api.v1 import user
+from app.api.v1 import user,auth
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -12,6 +12,7 @@ async def lifespan(app: FastAPI):
 app = FastAPI(title=settings.APP_NAME, debug=settings.DEBUG)
 
 app.include_router(user.router,prefix="/api/v1")
+app.include_router(auth.router,prefix="/api/v1")
 
 @app.on_event("startup")
 async def startup_event():

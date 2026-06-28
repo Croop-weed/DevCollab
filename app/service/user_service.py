@@ -3,6 +3,7 @@ from fastapi import HTTPException,status
 from app.repositories.user_repo import UserRepository
 from app.models.user_model import User_model
 from app.schemas.user_schema import UserCreate
+from app.core.security import hashed_password
 
 class UserService:
     def __init__(self, db: AsyncSession):
@@ -16,7 +17,8 @@ class UserService:
                 detail="Email already registered"
             )
 
-        fake_hashed = f"hashed_{data.password}"
+        
+        hashed = hashed_password(data.password)
 
         return await self.repo.create_user(
             email=data.email,
